@@ -22,7 +22,24 @@ class Television {
     }
 
     public void setOnOff(Boolean onOff) {
-        this.onOff = onOff;
+        if (onOff == true) {
+
+            if (isOnOff() == false) {
+                this.onOff = onOff;
+                System.out.println("Enciendiendo la TV");
+            } else {
+                System.out.println("No puedes encender la TV si ya esta encendida");
+            }
+
+        } else {
+            if (isOnOff() == true) {
+                this.onOff = onOff;
+                System.out.println("Apagando la TV");
+            } else {
+                System.out.println("No puedes apagar la TV si ya esta apagada");
+            }
+
+        }
     }
 
     public int getChannel() {
@@ -40,21 +57,11 @@ class Television {
     }
 
     public void turnOn() {
-        if (isOnOff() == false) {
-            setOnOff(true);
-            System.out.println("Enciendiendo la TV");
-        } else {
-            System.out.println("No puedes encender la TV si ya esta encendida");
-        }
+        setOnOff(true);
     }
 
     public void turnOff() {
-        if (isOnOff() == true) {
-            setOnOff(false);
-            System.out.println("Apagando la TV");
-        } else {
-            System.out.println("No puedes apagar la TV si ya esta apagada");
-        }
+        setOnOff(false);
     }
 
     public void channelUp() {
@@ -66,15 +73,11 @@ class Television {
     }
 
     public void volumeUp() {
-        int v = volumen;
-        v++;
-        setVolumen(v);
+        setVolumen(volumen + 1);
     }
 
     public void volumeDown() {
-        int v = volumen;
-        v--;
-        setVolumen(v);
+        setVolumen(volumen - 1);
     }
 
 }
